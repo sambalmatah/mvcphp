@@ -1,13 +1,7 @@
 <!-- membuat view dari controllers/About.php -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Page</title>
-</head>
-<body>
-    <h1>My Pages</h1>
-</body>
-</html>
+<!-- tag struktur html dibuat menggunakan templates/header.php -->
+
+    <h1>My pages</h1>
+
+<!-- tag struktur html dibuat menggunakan templates/footer.php -->
