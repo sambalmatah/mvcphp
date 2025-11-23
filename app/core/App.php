@@ -17,6 +17,11 @@ class App {
         // mengisi construct $url dengan method parseURL()
         $url = $this->parseURL();
 
+        // menambahkan jika URL kosong maka langsung menuju Home/index
+        if ($url === null) {
+            $url = [$this->controller, $this->method];
+        }
+
         // ---CONTROLLER---
         // buat agar kita bisa memilah nama yang ditulis di URL
         if( file_exists('../app/controllers/'. $url[0] . '.php') ) {
