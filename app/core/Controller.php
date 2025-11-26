@@ -9,6 +9,15 @@ class Controller {
         // panggil viewnya yang ada di dalam folder views/home/index.php
         require_once '../app/views/' . $view . '.php';
     }
+
+    // membuat sebuah method untuk controller method model yang dipanggil dari controllers/Home.php
+    public function model($model)
+    {
+        // panggil modelnya yang ada di dalam folder models/home/User_model.php
+        require_once '../app/models/' . $model . '.php';
+        // selain itu karena dia class maka instansiasi dulu
+        return new $model;
+    }
 }
 
 ?>
