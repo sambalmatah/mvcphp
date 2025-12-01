@@ -12,14 +12,17 @@
                 <h3>Daftar Mahasiswa DB</h3>
                 <!-- buat model -->
                 <!-- buat daftar menggunakan iterasi -->
-                <?php foreach( $data['mhsdb'] as $mahasiswas ) : ?>
-                <ul>
-                    <li><?php echo $mahasiswas['nama']; ?></li>
-                    <li><?php echo $mahasiswas['nim']; ?></li>
-                    <li><?php echo $mahasiswas['email']; ?></li>
-                    <li><?php echo $mahasiswas['jurusan']; ?></li>
+                <!-- menggunakan template list group bootstrap -->
+                <ul class="list-group">
+                    <?php foreach( $data['mhsdb'] as $mahasiswas ) : ?>
+                    <!-- menggunakan flexbox bootstrap -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <?php echo $mahasiswas['nama']; ?>
+                        <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/detail/id -->
+                        <a href="<?php echo BASEURL; ?>/mahasiswadb/detail/<?php echo $mahasiswas['id']; ?> " class="badge badge-primary">detail</a>
+                    </li>
+                    <?php endforeach; ?>
                 </ul>
-                <?php endforeach; ?>
 
             </div>
          </div>
