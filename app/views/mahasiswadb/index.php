@@ -3,11 +3,17 @@
 <!-- tag struktur html dibuat menggunakan templates/header.php -->
 
     <!-- membuat div container milik bootstrap -->
-    <div class="container mt-5">
+    <div class="container mt-3">
         <!-- membuat row -->
          <div class="row">
             <!-- membuat kolom dengan ukuran 6 -->
             <div class="col-6">
+                <!-- membuat button untuk modal milik bootstrap -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataModal">
+                    Tambah Data Mahasiswa
+                </button>
+                <br>
+                <br>
                 <!-- membuat judul dengan h3 -->
                 <h3>Daftar Mahasiswa DB</h3>
                 <!-- buat model -->
@@ -27,6 +33,52 @@
             </div>
          </div>
 
+    </div>
+
+    <!-- Modal -->
+    <!-- membuat modal milik bootstrap dan diletakkan dipaling bawah -->
+    <div class="modal fade" id="tambahDataModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="judulModal">Tambah Mahasiswa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="<?php echo BASEURL; ?>/MahasiswaDB/tambah" method="post">
+                <div class="form-group">
+                    <label for="nama">Nama Mahasiswa</label>
+                    <input type="text" class="form-control" id="nama" name="nama"  placeholder="masukan nama mahasiswa...">
+                </div>
+                <div class="form-group">
+                    <label for="nim">NIM Mahasiswa</label>
+                    <input type="text" class="form-control" id="nim" name="nim"  placeholder="masukan nim mahasiswa...">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Mahasiswa</label>
+                    <input type="email" class="form-control" id="email" name="email"  placeholder="masukan email mahasiswa...">
+                </div>
+                <div class="form-group">
+                    <label for="jurusan">Jurusan</label>
+                    <select class="form-control" id="jurusan" name="jurusan">
+                    <option value="">--</option>
+                    <option value="Sistem Informasi">Sistem Informasi</option>
+                    <option value="Teknik Komputer">Teknik Komputer</option>
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                    <option value="Teknik Sipil">Teknik Sipil</option>
+                    <option value="Teknik Mesin">Teknik Mesin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+        </div>
+        </div>
+    </div>
     </div>
     
 <!-- tag struktur html dibuat menggunakan templates/footer.php -->

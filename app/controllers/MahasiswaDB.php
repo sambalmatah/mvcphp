@@ -35,6 +35,16 @@ class MahasiswaDB extends Controller {
         // panggil template header pada folder templates/footer.php
         $this->view('templates/footer');
     }
+
+    // Membuat method tambah
+    public function tambah()
+    {
+        // Jika data model->tambahDataMahasiswaDB nilainya lebih dari satu(row)
+        if( $this->model('MahasiswaDB_model')->tambahDataMahasiswaDB($_POST) > 0 ) {
+            header('Location: ' . BASEURL . '/mahasiswadb');
+            exit;
+        }
+    }
 }
 
 ?>

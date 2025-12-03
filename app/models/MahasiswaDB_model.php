@@ -29,6 +29,29 @@ class MahasiswaDB_model {
         $this->db->bind('id', $id);
         return $this->db->single();;
     }
+
+    // membuat method tambahDataMahasiswaDB
+    public function tambahDataMahasiswaDB($data)
+    {
+        // membuat query insert
+        $query = "INSERT INTO mahasiswa
+                    VALUES
+                    ('', :nama, :nim, :email, :jurusan)";
+
+        // menerapkan ke dalam model query
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('nim', $data['nim']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
+
+        // execute query
+        $this->db->execute();
+
+        // mengembalikan nilai untuk MahasiswaDB/tambah
+        return $this->db->rowCount();
+    }
+
 }
 
 ?>

@@ -91,6 +91,12 @@ class Database {
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    // membuat method untuk menghitung berapa baris yang terafeksi
+    public function rowCount()
+    {
+        return $this->stmt->rowCount();
+    }
+
 
 }
 
