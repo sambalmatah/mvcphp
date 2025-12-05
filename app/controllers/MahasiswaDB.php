@@ -41,6 +41,15 @@ class MahasiswaDB extends Controller {
     {
         // Jika data model->tambahDataMahasiswaDB nilainya lebih dari satu(row)
         if( $this->model('MahasiswaDB_model')->tambahDataMahasiswaDB($_POST) > 0 ) {
+            // set flashernya
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            // alihkan lokasi
+            header('Location: ' . BASEURL . '/mahasiswadb');
+            exit;
+        } else {
+            // set flashernya
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            // alihkan lokasi
             header('Location: ' . BASEURL . '/mahasiswadb');
             exit;
         }

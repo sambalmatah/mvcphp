@@ -4,10 +4,19 @@
 
     <!-- membuat div container milik bootstrap -->
     <div class="container mt-3">
+        <!-- membuat row untuk flasher -->
+        <div class="row">
+            <!-- membuat kolom untuk flasher -->
+            <div class="col-lg-6">
+                <!-- memanggil static function flash -->
+                <?php Flasher::flash(); ?>
+                <!-- ngesetnnya ke file controller/MahasiswaDB.php di method tambah -->
+            </div>
+        </div>
         <!-- membuat row -->
          <div class="row">
             <!-- membuat kolom dengan ukuran 6 -->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <!-- membuat button untuk modal milik bootstrap -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataModal">
                     Tambah Data Mahasiswa
