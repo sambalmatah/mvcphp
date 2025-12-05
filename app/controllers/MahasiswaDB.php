@@ -54,6 +54,25 @@ class MahasiswaDB extends Controller {
             exit;
         }
     }
+
+    // Membuat method hapus
+    public function hapus($id)
+    {
+        // Jika data model->hapusDataMahasiswaDB nilainya lebih dari satu(row)
+        if( $this->model('MahasiswaDB_model')->hapusDataMahasiswaDB($id) > 0 ) {
+            // set flashernya
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            // alihkan lokasi
+            header('Location: ' . BASEURL . '/mahasiswadb');
+            exit;
+        } else {
+            // set flashernya
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            // alihkan lokasi
+            header('Location: ' . BASEURL . '/mahasiswadb');
+            exit;
+        }
+    }
 }
 
 ?>

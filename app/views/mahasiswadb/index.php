@@ -33,8 +33,13 @@
                     <!-- menggunakan flexbox bootstrap -->
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <?php echo $mahasiswas['nama']; ?>
-                        <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/detail/id -->
-                        <a href="<?php echo BASEURL; ?>/mahasiswadb/detail/<?php echo $mahasiswas['id']; ?> " class="badge badge-primary">detail</a>
+                        <div class="btn-wrapper">
+                            <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/detail/id -->
+                            <a href="<?php echo BASEURL; ?>/mahasiswadb/detail/<?php echo $mahasiswas['id']; ?> " class="badge badge-primary">detail</a>
+                            <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/hapus/id -->
+                            <a href="<?php echo BASEURL; ?>/mahasiswadb/hapus/<?php echo $mahasiswas['id']; ?> " class="badge badge-danger" onclick="return confirm('yakin ingin menghapus data ini?')">hapus</a>
+
+                        </div>
                     </li>
                     <?php endforeach; ?>
                 </ul>
