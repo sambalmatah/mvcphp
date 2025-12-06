@@ -73,6 +73,30 @@ class MahasiswaDB extends Controller {
             exit;
         }
     }
+
+    public function getUbah()
+    {
+        // data dalam bentuk array asosiatif maka perlu dibungkus dengan fungsi json_encode
+        echo json_encode($this->model('MahasiswaDB_model')->getMahasiswaDBById($_POST['id']));
+    }
+
+    public function ubah()
+    {
+        // Jika data model->tambahDataMahasiswaDB nilainya lebih dari satu(row)
+        if( $this->model('MahasiswaDB_model')->ubahDataMahasiswaDB($_POST) > 0 ) {
+            // set flashernya
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            // alihkan lokasi
+            header('Location: ' . BASEURL . '/mahasiswadb');
+            exit;
+        } else {
+            // set flashernya
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            // alihkan lokasi
+            header('Location: ' . BASEURL . '/mahasiswadb');
+            exit;
+        }
+    }
 }
 
 ?>

@@ -70,6 +70,33 @@ class MahasiswaDB_model {
         return $this->db->rowCount();
     }
 
+    // membuat method ubahDataMahasiswaDB
+    public function ubahDataMahasiswaDB($data)
+    {
+        // membuat query update
+        $query = "UPDATE mahasiswa
+                    SET
+                    nama = :nama,
+                    nim = :nim,
+                    email = :email,
+                    jurusan = :jurusan
+                    WHERE id = :id";
+
+        // menerapkan ke dalam model query
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('nim', $data['nim']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
+        $this->db->bind('id', $data['id']);
+
+        // execute query
+        $this->db->execute();
+
+        // mengembalikan nilai untuk MahasiswaDB/tambah
+        return $this->db->rowCount();
+    }
+
 }
 
 ?>

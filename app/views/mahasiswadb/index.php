@@ -18,7 +18,7 @@
             <!-- membuat kolom dengan ukuran 6 -->
             <div class="col-lg-6">
                 <!-- membuat button untuk modal milik bootstrap -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataModal">
+                <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#tambahDataModal">
                     Tambah Data Mahasiswa
                 </button>
                 <br>
@@ -36,6 +36,8 @@
                         <div class="btn-wrapper">
                             <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/detail/id -->
                             <a href="<?php echo BASEURL; ?>/mahasiswadb/detail/<?php echo $mahasiswas['id']; ?> " class="badge badge-primary">detail</a>
+                            <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/ubah/id dan menambah atribut modal -->
+                            <a href="<?php echo BASEURL; ?>/mahasiswadb/ubah/<?php echo $mahasiswas['id']; ?> " class="badge badge-warning tampilModalUbah" data-toggle="modal" data-target="#tambahDataModal" data-id="<?php echo $mahasiswas['id']; ?>">ubah</a>
                             <!-- membuat bedges dan memanggil anchor ke file BASEURL/mahasiswadb/hapus/id -->
                             <a href="<?php echo BASEURL; ?>/mahasiswadb/hapus/<?php echo $mahasiswas['id']; ?> " class="badge badge-danger" onclick="return confirm('yakin ingin menghapus data ini?')">hapus</a>
 
@@ -55,13 +57,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="judulModal">Tambah Mahasiswa</h5>
+            <h5 class="modal-title" id="judulModal">Tambah Data Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             <form action="<?php echo BASEURL; ?>/MahasiswaDB/tambah" method="post">
+                <input type="hidden" id="id" name="id">
                 <div class="form-group">
                     <label for="nama">Nama Mahasiswa</label>
                     <input type="text" class="form-control" id="nama" name="nama"  placeholder="masukan nama mahasiswa...">
