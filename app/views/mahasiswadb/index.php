@@ -13,16 +13,36 @@
                 <!-- ngesetnnya ke file controller/MahasiswaDB.php di method tambah -->
             </div>
         </div>
-        <!-- membuat row -->
-         <div class="row">
-            <!-- membuat kolom dengan ukuran 6 -->
+
+        <div class="row mb-3">
             <div class="col-lg-6">
                 <!-- membuat button untuk modal milik bootstrap -->
                 <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#tambahDataModal">
                     Tambah Data Mahasiswa
                 </button>
-                <br>
-                <br>
+
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <!-- bikin sebuah form untuk input cari -->
+                <form action="<?php echo BASEURL; ?>/mahasiswadb/cari" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Cari mahasiswa..." id="keyword" name="keyword" autocomplete="off">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- membuat row -->
+         <div class="row">
+            <!-- membuat kolom dengan ukuran 6 -->
+            <div class="col-lg-6">
                 <!-- membuat judul dengan h3 -->
                 <h3>Daftar Mahasiswa DB</h3>
                 <!-- buat model -->
